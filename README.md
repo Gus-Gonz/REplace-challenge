@@ -1,39 +1,92 @@
-# 🚀 Technical Challenge: Renewable Energy Projects Visualization
+# Renewable Energy Projects - REPLACE
 
-## 📌 Objective  
-Develop a Full Stack application that allows users to visualize renewable energy projects on an interactive map and in a list view. Users should be able to filter projects by type.
+This project consists of a web application to visualize renewable energy projects (solar, wind, and hydroelectric). The application offers both a map view and a list view to explore available projects, with filtering options by energy type.
 
-## 🔧 General Requirements  
-- **Backend**: Expose an API that returns a list of renewable energy projects with their locations and types.  
-- **Frontend**: Implement the interface using **React with Redux and Sagas** for state management.  
-- **Views**: The application must allow switching between a map view and a list view.  
+## Project Structure
 
-## 🛠️ Technical Requirements  
+The project is divided into:
 
-### **Backend (Python)**  
-- Create an API endpoint that returns information about renewable energy projects.  
-- Each project should include the following fields:  
-  - `id`: Unique identifier.  
-  - `name`: Project name.  
-  - `type`: Type of renewable energy (e.g., **solar, wind, hydroelectric**).  
-  - `latitude`, `longitude`: Project location.  
-- Allow filtering projects by type through the API.  
+- **Frontend**: React application with Redux for state management styled with Tailwind CSS.
+- **Backend**: FASTAPI app that manages project data and provides endpoints for the frontend.
+- **Database**: PostgreSQL
 
-### **Frontend (React + Redux + Sagas)**  
-- Implement the interface using **React**.  
-- Manage global state with **Redux** and handle asynchronous API calls with **Redux-Saga**.  
-- Enable switching between **map view and list view**.  
-- Implement a filter by project type that dynamically updates both views in real-time.  
+## Main Features
 
-## 📊 Evaluation Criteria  
-- ✅ Correct implementation and consumption of the API.  
-- ✅ Proper use of **Redux and Sagas** to manage data flow.  
-- ✅ Ability to dynamically filter projects in the frontend.  
-- ✅ Code structure, best practices, and clarity in the solution.  
+- Map view for geographic visualization of projects
+- List view with details of each project
+- Filtering by project type (solar, wind, hydroelectric)
+- Dynamic switching between views
+- Responsive design for different devices
 
-## 📎 Submission Guidelines  
-1. **Fork this repository** and work in your own private repository.  
-2. Once completed, **share your repository** or submit a **ZIP file** with your solution.  
-3. Include a **README** explaining how to run your project.  
+## Prerequisites
 
-Good luck! 🚀  
+- [Docker](https://www.docker.com/get-started)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+- Git
+
+## Installation and Execution
+
+1. Clone the repository:
+   ```bash
+   git clone {URL}
+   cd replace
+   ```
+
+2. Start services with Docker Compose:
+   ```bash
+   docker-compose up
+   ```
+
+This command will launch both the frontend and backend. The backend includes a seeder that will automatically load 10 sample projects into the database.
+
+## Accessing the Application
+
+Once the containers are running:
+
+- **Frontend**: Access the web application at [http://localhost:3000](http://localhost:3000)
+- **Backend API**: Available at [http://localhost:8000/api](http://localhost:8000/api)
+
+## Initial Data
+
+When starting for the first time, the backend will automatically run a seeder that loads 10 sample projects into the database, including:
+- Solar projects
+- Wind projects
+- Hydroelectric projects
+
+Each project contains information such as name, location, and type.
+
+
+### Environment Variables
+
+Backend: 
+
+  ```bash
+  DB_NAME=replace_db
+  DB_USER=postgres
+  DB_PASSWORD=postgres
+  DB_HOST=db
+  DB_PORT=5432
+  ```
+
+Frontend (passed as a build ARG): 
+
+  ```bash
+  VITE_API_BASE_URL=http://localhost:8000/api
+  ```
+
+### Useful Commands
+
+- **View container logs**:
+  ```bash
+  docker-compose logs
+  ```
+
+- **Restart services**:
+  ```bash
+  docker-compose restart
+  ```
+
+- **Stop services**:
+  ```bash
+  docker-compose down
+  ```
