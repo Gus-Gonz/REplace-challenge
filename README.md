@@ -29,7 +29,7 @@ The project is divided into:
 1. Clone the repository:
    ```bash
    git clone {URL}
-   cd replace
+   cd replace-challenge
    ```
 
 2. Start services with Docker Compose:
