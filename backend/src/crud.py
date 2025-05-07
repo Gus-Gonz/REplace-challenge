@@ -1,8 +1,9 @@
 from sqlalchemy.orm import Session
 from src import models
+from typing import List, Optional
 
-def get_projects(db: Session, project_type: str = None):
+def get_projects(db: Session, project_types: Optional[List[str]] = None):
     query = db.query(models.Project)
-    if project_type:
-        query = query.filter(models.Project.project_type == project_type.lower())
+    if project_types:
+        query = query.filter(models.Project.project_type.in_([p_type.lower() for p_type in project_types]))
     return query.all()
