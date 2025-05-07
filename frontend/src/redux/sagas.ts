@@ -12,8 +12,6 @@ function* fetchProjects(action?: any) {
     const { projectTypes } = action.payload;
     const endpoint = "/projects/";
 
-    debugger
-
     const params = !projectTypes.includes("all")
       ? { project_type: projectTypes }
       : {};

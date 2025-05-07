@@ -11,7 +11,8 @@ type ButtonProps = {
 
 const buttonClass = {
   black: "bg-black text-white hover:bg-gray-600 cursor-pointer",
-  white: "bg-white text-black border border-black hover:bg-gray-300 cursor-pointer",
+  white:
+    "bg-white text-black border border-black hover:bg-gray-300 cursor-pointer",
 };
 
 export const Button = ({

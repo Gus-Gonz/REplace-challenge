@@ -11,7 +11,7 @@ fake = Faker()
 
 def insert_initial_data(db: Session):
     projects = []
-    for _ in range(15):
+    for _ in range(10):
         project = Project(
             name=fake.company(),
             project_type=random.choice(["solar", "wind", "hydroelectric"]),

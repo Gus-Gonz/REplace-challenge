@@ -8,12 +8,12 @@ import MainLayout from "./MainLayout";
 const App = () => {
   return (
     <BrowserRouter>
-        <Routes>
-          <Route element={<MainLayout />}>
-            <Route path="/" element={<ProjectTablePage />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Route>
-        </Routes>
+      <Routes>
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<ProjectTablePage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 };

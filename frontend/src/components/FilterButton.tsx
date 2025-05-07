@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProjectType } from '../../types/project';
+import { ProjectType } from '../types/project';
 
 interface FilterButtonProps {
     type: ProjectType;

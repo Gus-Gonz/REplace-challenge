@@ -1,10 +1,12 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../redux/store';
-import { Project } from '../../types/project';
+import React from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
+import { Project } from "../../types/project";
 
 const ProjectListView = () => {
-  const { projects, loading, error } = useSelector((state: RootState) => state.projects);
+  const { projects, loading, error } = useSelector(
+    (state: RootState) => state.projects
+  );
 
   if (loading) {
     return (

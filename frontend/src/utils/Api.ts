@@ -23,7 +23,7 @@ class Api {
       config.params = {};
       config.paramsSerializer = (params) => {
         const searchParams = new URLSearchParams();
-        
+
         Object.entries(params).forEach(([key, value]) => {
           if (Array.isArray(value)) {
             value.forEach((item) => {
@@ -33,10 +33,10 @@ class Api {
             searchParams.append(key, value);
           }
         });
-        
+
         return searchParams.toString();
       };
-      
+
       config.params = data;
     } else {
       config.data = data;

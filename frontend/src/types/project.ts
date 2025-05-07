@@ -1,4 +1,4 @@
-export type ProjectType = 'all' | 'solar' | 'wind' | 'hydroelectric';
+export type ProjectType = "all" | "solar" | "wind" | "hydroelectric";
 
 export interface Project {
   id: string;
@@ -13,5 +13,5 @@ export interface ProjectsState {
   loading: boolean;
   error: null | string;
   activeFilters: ProjectType[];
-  viewMode: 'map' | 'list';
+  viewMode: "map" | "list";
 }
