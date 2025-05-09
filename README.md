@@ -8,7 +8,6 @@ The project is divided into:
 
 - **Frontend**: React application with Redux for state management styled with Tailwind CSS.
 - **Backend**: FASTAPI app that manages project data and provides endpoints for the frontend.
-- **Database**: PostgreSQL
 
 ## Main Features
 
@@ -20,8 +19,9 @@ The project is divided into:
 
 ## Prerequisites
 
-- [Docker](https://www.docker.com/get-started)
-- [Docker Compose](https://docs.docker.com/compose/install/)
+- Python 3.13
+- Poetry (Python dependency manager)
+- Node.js v23
 - Git
 
 ## Installation and Execution
@@ -32,29 +32,57 @@ The project is divided into:
    cd replace-challenge
    ```
 
-2. Start services with Docker Compose:
+### Backend Setup
+
+1. Navigate to the backend directory:
    ```bash
-   docker-compose up
+   cd ./backend
    ```
 
-This command will launch both the frontend and backend. The backend includes a seeder that will automatically load 10 sample projects into the database.
+2. Create and activate a Poetry environment with Python 3.13:
+   ```bash
+   poetry env use 3.13
+   poetry install
+   ```
+
+3. Start the backend development server:
+   ```bash
+   poetry run uvicorn main:app --reload --port 8000
+   ```
+
+### Frontend Setup
+
+1. Navigate to the frontend directory:
+   ```bash
+   cd ./frontend
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm i
+   ```
+
+3. Start the frontend development server:
+   ```bash
+   npm run dev
+   ```
 
 ## Accessing the Application
 
-Once the containers are running:
+Once the servers are running:
 
-- **Frontend**: Access the web application at [http://localhost:3000](http://localhost:3000)
+- **Frontend**: Access the web application at [http://localhost:5173](http://localhost:5173)
 - **Backend API**: Available at [http://localhost:8000/api](http://localhost:8000/api)
 
-## Initial Data
+## Test Data
 
-When starting for the first time, the backend will automatically run a seeder that loads 10 sample projects into the database, including:
-- Solar projects
-- Wind projects
-- Hydroelectric projects
+The backend uses a mock system to simulate a database. These test data are automatically loaded when the server starts and don't require a real database connection. The mocks include:
 
-Each project contains information such as name, location, and type.
+Solar energy projects
+Wind energy projects
+Hydroelectric projects
 
+All these simulated data allow testing the application without needing to set up a database.
 
 ### Environment Variables
 
@@ -72,21 +100,4 @@ Frontend (passed as a build ARG):
 
   ```bash
   VITE_API_BASE_URL=http://localhost:8000/api
-  ```
-
-### Useful Commands
-
-- **View container logs**:
-  ```bash
-  docker-compose logs
-  ```
-
-- **Restart services**:
-  ```bash
-  docker-compose restart
-  ```
-
-- **Stop services**:
-  ```bash
-  docker-compose down
   ```
